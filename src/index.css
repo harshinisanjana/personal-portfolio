@@ -1,0 +1,363 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-card: hsl(var(--card));
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+
+    --primary: 250 47% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+  }
+
+  .dark {
+    /* Deep space background with cosmic nebula */
+    --background: 230 35% 7%;
+    --foreground: 210 40% 92%;
+
+    --card: 220 30% 12%;
+
+    --primary: 270 85% 70%;
+    --primary-foreground: 210 40% 95%;
+
+    --border: 220 25% 18%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    position: relative;
+  }
+
+  /* Cosmic background for dark mode */
+  .dark body {
+    background: 
+      radial-gradient(ellipse at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 40% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+      linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 100%);
+    background-size: 800px 600px, 600px 800px, 900px 700px, 700px 900px, 100% 100%;
+    background-repeat: no-repeat;
+    animation: cosmic-drift 20s ease-in-out infinite;
+  }
+
+  @keyframes cosmic-drift {
+    0%, 100% { 
+      background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0%, center; 
+    }
+    25% { 
+      background-position: 10% 10%, 90% 90%, 5% 95%, 95% 5%, center; 
+    }
+    50% { 
+      background-position: 20% 5%, 80% 95%, 10% 90%, 90% 10%, center; 
+    }
+    75% { 
+      background-position: 5% 20%, 95% 80%, 15% 85%, 85% 15%, center; 
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.2),
+              0 0 20px rgba(167, 139, 250, 0.1);
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+.dark .gradient-border {
+  border: 1px solid transparent;
+  background: 
+    linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+    linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(59, 130, 246, 0.2), rgba(236, 72, 153, 0.3)) border-box;
+}
+
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+         hover:scale-105 active:scale-95;
+}
+
+.dark .cosmic-button {
+  background: linear-gradient(135deg, hsl(var(--primary)), rgba(167, 139, 250, 0.8));
+  box-shadow: 0 4px 15px rgba(167, 139, 250, 0.2);
+}
+
+.dark .cosmic-button:hover {
+  box-shadow: 
+    0 0 20px rgba(167, 139, 250, 0.6),
+    0 0 40px rgba(167, 139, 250, 0.3),
+    0 8px 32px rgba(167, 139, 250, 0.2);
+  transform: scale(1.05) translateY(-2px);
+}
+
+/* Enhanced star animations */
+@utility star {
+  @apply absolute;
+  width: 2px;
+  height: 100px;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(167, 139, 250, 0.7),
+    transparent
+  );
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.8)) 
+          drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
+}
+
+.star.shooting {
+  animation: shooting 3s linear forwards;
+}
+
+.star.twinkle {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
+  opacity: 0.8;
+  animation: twinkle 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes shooting {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(45deg) scaleY(0.5);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-20px) translateY(20px) rotate(45deg) scaleY(1);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-300px) translateY(300px) rotate(45deg) scaleY(0.8);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Cosmic card effects for dark mode */
+.dark [class*="card"], .dark [class*="Card"] {
+  background: 
+    linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.05) 0%, 
+      rgba(255, 255, 255, 0.02) 50%, 
+      rgba(255, 255, 255, 0.05) 100%),
+    hsl(var(--card));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.dark [class*="card"]:hover, .dark [class*="Card"]:hover {
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Floating particles effect */
+@keyframes float-particles {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translateY(-100px) rotate(90deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-200px) rotate(180deg);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translateY(-100px) rotate(270deg);
+    opacity: 0.3;
+  }
+}
+
+.dark body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(1px 1px at 40% 70%, rgba(167, 139, 250, 0.1), transparent),
+    radial-gradient(1px 1px at 60% 20%, rgba(59, 130, 246, 0.1), transparent),
+    radial-gradient(1px 1px at 80% 80%, rgba(236, 72, 153, 0.1), transparent);
+  background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px;
+  animation: float-particles 30s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Space-themed text effects */
+  .cosmic-text {
+    color: #a78bfa; /* Fallback color */
+    background: linear-gradient(135deg, #a78bfa, #3b82f6, #ec4899);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: cosmic-gradient 3s ease-in-out infinite;
+  }
+
+  /* Fallback for browsers that don't support background-clip: text */
+  @supports not (background-clip: text) or not (-webkit-background-clip: text) {
+    .cosmic-text {
+      color: #a78bfa !important;
+      -webkit-text-fill-color: #a78bfa !important;
+    }
+  }
+
+  @keyframes cosmic-gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .nebula-glow {
+    box-shadow: 
+      0 0 20px rgba(167, 139, 250, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.2),
+      0 0 60px rgba(236, 72, 153, 0.1);
+  }
+}
