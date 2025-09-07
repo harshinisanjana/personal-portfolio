@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/personal-portfolio/">
         <Routes>
           <Route index element={<Home />} />
         </Routes>
