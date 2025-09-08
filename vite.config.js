@@ -5,5 +5,5 @@ import path from "path"
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/portfolio/',  
+  base: '/personal-portfolio/',  
 })
