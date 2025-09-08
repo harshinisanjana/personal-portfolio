@@ -1,8 +1,4 @@
 import { ArrowRight, ExternalLink, Github, Zap } from "lucide-react";
-import project1 from '../assets/project1.jpg';
-import project2 from '../assets/project2.jpg';
-import project3 from '../assets/project3.png';
-
 const projects = [
 	{
 		id: 1,
@@ -19,7 +15,7 @@ const projects = [
 		title: "Menstural Cycle Tracker",
 		description:
 			"Developed a cycle tracker with user login, period prediction, and hormone insights. Visualized cycle data using Matplotlib charts on a responsive dashboard.",
-		image:  import.meta.env.BASE_URL + "project/project2.jpg",
+		image: "/project/project2.jpg",
 		tags: ["Python", "Flask", "MySql", "HTML", "CSS"],
 		githubUrl:
 			"https://github.com/harshinisanjana/menstrual-cycle-tracker",
