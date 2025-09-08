@@ -16,7 +16,7 @@ const projects = [
 		title: "Menstural Cycle Tracker",
 		description:
 			"Developed a cycle tracker with user login, period prediction, and hormone insights. Visualized cycle data using Matplotlib charts on a responsive dashboard.",
-		image: "/project/project2.jpg",
+		image: "public/project/project2.jpg",
 		tags: ["Python", "Flask", "MySql", "HTML", "CSS"],
 		githubUrl:
 			"https://github.com/harshinisanjana/menstrual-cycle-tracker",
