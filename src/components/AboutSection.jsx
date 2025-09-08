@@ -71,7 +71,7 @@ export const AboutSection = () => {
                 <div className="space-y-6">
                   <p className="text-foreground/80 leading-relaxed">
                     I have a strong passion for software development, full-stack applications, 
-                    database management, and web technologies. With hands-on experience in building, 
+                    database management, and AI/ML. With hands-on experience in building, 
                     debugging, and shipping projects, I enjoy turning ideas into real-world solutions 
                     that are both functional and impactful.
                   </p>
