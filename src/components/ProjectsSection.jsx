@@ -9,7 +9,7 @@ const projects = [
 		title: "Hospital Patient Management System",
 		description:
 			"Built a hospital system with patient registration and doctor assignment. Added time-slot scheduling, searchable records, and daily admission/discharge reports.",
-		image: project1,
+		image: "project/project1.jpg",
 		tags: ["Java", "Swing", "MySql", "JDBC"],
 		githubUrl:
 			"https://github.com/harshinisanjana/Hospital-Patient-Management-System",
@@ -19,7 +19,7 @@ const projects = [
 		title: "Menstural Cycle Tracker",
 		description:
 			"Developed a cycle tracker with user login, period prediction, and hormone insights. Visualized cycle data using Matplotlib charts on a responsive dashboard.",
-		image: project2,
+		image: "project/project2.jpg",
 		tags: ["Python", "Flask", "MySql", "HTML", "CSS"],
 		githubUrl:
 			"https://github.com/harshinisanjana/menstrual-cycle-tracker",
@@ -29,7 +29,7 @@ const projects = [
 		title: "Vehicle Token Dispensing System",
 		description:
 			"Created a web-based parking system with token generation, slot display, and admin controls. Integrated real-time updates, parking verification, and customer data tracking.",
-		image: project3,
+		image: "project/project1.png",
 		tags: ["HTML", "CSS", "JavaScript", "PHP"],
 		githubUrl:
 			"https://github.com/harshinisanjana/vehicle_token_dispensing_system",
