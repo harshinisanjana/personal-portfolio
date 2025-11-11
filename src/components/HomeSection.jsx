@@ -36,7 +36,7 @@ export const HomeSection = () => {
             <a href="#projects" className="cosmic-button mr-4">
               View My Work
             </a>
-            <a href="project/Harshini Sanjana J - Resume.pdf" className="cosmic-button" download>
+            <a href="project/Harshini Sanjana J - Resume updated.pdf" className="cosmic-button" download>
               Download CV
             </a>
           </div>

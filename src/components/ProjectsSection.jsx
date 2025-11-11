@@ -3,30 +3,45 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
+    title: "DevHive - Developer Community Platform",
+    description:
+      "Developed a full-stack platform for developer collaboration with project discovery and application workflows. Implemented secure JWT-based role access and file uploads for portfolio submissions. Built a dashboard for project owners to track applications, manage decisions, and monitor real-time status.",
+    tags: ["Vite+React", "Tailwind CSS", "Node.js", "Express.js", "MySQL"],
+    githubUrl:
+      "https://github.com/harshinisanjana/DevHive",
+  },
+  {
+    id: 2,
+    title: "Lung Cancer Detection Model",
+    description:
+      "Built a deep learning model for early-stage lung cancer detection from medical images with 75% accuracy. Applied transfer learning with pre-trained CNNs to boost accuracy and efficiency.",
+    tags: ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "Scikit-learn", "Matplotlib"],
+    githubUrl:
+      "https://github.com/harshinisanjana/Lung-Cancer-Detection-Model",
+  },
+  {
+    id: 3,
     title: "Hospital Patient Management System",
     description:
       "Built a hospital system with patient registration and doctor assignment. Added time-slot scheduling, searchable records, and daily admission/discharge reports.",
-    image: "/project1.jpg", 
     tags: ["Java", "Swing", "MySql", "JDBC"],
     githubUrl:
       "https://github.com/harshinisanjana/Hospital-Patient-Management-System",
   },
   {
-    id: 2,
+    id: 4,
     title: "Menstural Cycle Tracker",
     description:
       "Developed a cycle tracker with user login, period prediction, and hormone insights. Visualized cycle data using Matplotlib charts on a responsive dashboard.",
-    image: "/project2.jpg",
     tags: ["Python", "Flask", "MySql", "HTML", "CSS"],
     githubUrl:
       "https://github.com/harshinisanjana/menstrual-cycle-tracker",
   },
   {
-    id: 3,
+    id: 5,
     title: "Vehicle Token Dispensing System",
     description:
       "Created a web-based parking system with token generation, slot display, and admin controls. Integrated real-time updates, parking verification, and customer data tracking.",
-    image: "/project3.png",
     tags: ["HTML", "CSS", "JavaScript", "PHP"],
     githubUrl:
       "https://github.com/harshinisanjana/vehicle_token_dispensing_system",
