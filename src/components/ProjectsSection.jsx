@@ -79,13 +79,6 @@ export const ProjectsSection = () => {
               key={key}
               className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50"
             >
-              <div className="aspect-video overflow-hidden bg-muted">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
 
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
