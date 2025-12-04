@@ -68,56 +68,56 @@ export const ProjectsSection = () => {
           crafted with attention to detail, performance, and user experience.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, key) => (
+        {/* changed from grid of cards → simple vertical list */}
+        <div className="space-y-8">
+          {projects.map((project) => (
             <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50"
+              key={project.id}
+              className="group border-b border-border/40 pb-6 last:border-b-0"
             >
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {project.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                  {project.description}
-                </p>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
+                {project.title}
+              </h3>
 
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-300"
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <Github size={20} />
-                    </a>
+              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                {project.description}
+              </p>
 
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-300"
-                        aria-label={`View ${project.title} demo`}
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                  </div>
-                </div>
+              <div className="flex items-center gap-4">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm underline-offset-4 hover:underline"
+                  aria-label={`View ${project.title} on GitHub`}
+                >
+                  <Github size={18} />
+                  <span>View on GitHub</span>
+                </a>
+
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm underline-offset-4 hover:underline"
+                    aria-label={`View ${project.title} demo`}
+                  >
+                    <ExternalLink size={18} />
+                    <span>Live demo</span>
+                  </a>
+                )}
               </div>
             </div>
           ))}
