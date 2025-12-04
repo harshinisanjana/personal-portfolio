@@ -7,7 +7,8 @@ const projects = [
     description:
       "Developed a full-stack platform for developer collaboration with project discovery and application workflows. Implemented secure JWT-based role access and file uploads for portfolio submissions. Built a dashboard for project owners to track applications, manage decisions, and monitor real-time status.",
     tags: ["Vite+React", "Tailwind CSS", "Node.js", "Express.js", "MySQL"],
-    githubUrl: "https://github.com/harshinisanjana/DevHive",
+    githubUrl:
+      "https://github.com/harshinisanjana/DevHive",
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ const projects = [
     description:
       "Built a deep learning model for early-stage lung cancer detection from medical images with 75% accuracy. Applied transfer learning with pre-trained CNNs to boost accuracy and efficiency.",
     tags: ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "Scikit-learn", "Matplotlib"],
-    githubUrl: "https://github.com/harshinisanjana/Lung-Cancer-Detection-Model",
+    githubUrl:
+      "https://github.com/harshinisanjana/Lung-Cancer-Detection-Model",
   },
   {
     id: 3,
@@ -23,7 +25,8 @@ const projects = [
     description:
       "Built a hospital system with patient registration and doctor assignment. Added time-slot scheduling, searchable records, and daily admission/discharge reports.",
     tags: ["Java", "Swing", "MySql", "JDBC"],
-    githubUrl: "https://github.com/harshinisanjana/Hospital-Patient-Management-System",
+    githubUrl:
+      "https://github.com/harshinisanjana/Hospital-Patient-Management-System",
   },
   {
     id: 4,
@@ -31,7 +34,8 @@ const projects = [
     description:
       "Developed a cycle tracker with user login, period prediction, and hormone insights. Visualized cycle data using Matplotlib charts on a responsive dashboard.",
     tags: ["Python", "Flask", "MySql", "HTML", "CSS"],
-    githubUrl: "https://github.com/harshinisanjana/menstrual-cycle-tracker",
+    githubUrl:
+      "https://github.com/harshinisanjana/menstrual-cycle-tracker",
   },
   {
     id: 5,
@@ -39,7 +43,8 @@ const projects = [
     description:
       "Created a web-based parking system with token generation, slot display, and admin controls. Integrated real-time updates, parking verification, and customer data tracking.",
     tags: ["HTML", "CSS", "JavaScript", "PHP"],
-    githubUrl: "https://github.com/harshinisanjana/vehicle_token_dispensing_system",
+    githubUrl:
+      "https://github.com/harshinisanjana/vehicle_token_dispensing_system",
   },
 ];
 
@@ -68,56 +73,56 @@ export const ProjectsSection = () => {
           crafted with attention to detail, performance, and user experience.
         </p>
 
-        {/* changed from grid of cards → simple vertical list */}
-        <div className="space-y-8">
-          {projects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, key) => (
             <div
-              key={project.id}
-              className="group border-b border-border/40 pb-6 last:border-b-0"
+              key={key}
+              className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50"
             >
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
 
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
-                {project.title}
-              </h3>
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                {project.description}
-              </p>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                  {project.description}
+                </p>
 
-              <div className="flex items-center gap-4">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm underline-offset-4 hover:underline"
-                  aria-label={`View ${project.title} on GitHub`}
-                >
-                  <Github size={18} />
-                  <span>View on GitHub</span>
-                </a>
-
-                {project.demoUrl && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm underline-offset-4 hover:underline"
-                    aria-label={`View ${project.title} demo`}
-                  >
-                    <ExternalLink size={18} />
-                    <span>Live demo</span>
-                  </a>
-                )}
+                <div className="flex justify-between items-center">
+                  <div className="flex space-x-3">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-300"
+                      aria-label={`View ${project.title} on GitHub`}
+                    >
+                      <Github size={20} />
+                    </a>
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-300"
+                        aria-label={`View ${project.title} demo`}
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
