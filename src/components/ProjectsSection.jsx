@@ -74,76 +74,57 @@ export const ProjectsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50"
-            >
+  {projects.map((project, key) => (
+    <div
+      key={key}
+      className="group border border-border/40 p-6 hover:border-primary transition-all duration-300"
+    >
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.tags.map((tag, index) => (
+          <span
+            key={index}
+            className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
 
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+      <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
+        {project.title}
+      </h3>
 
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                  {project.description}
-                </p>
+      <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+        {project.description}
+      </p>
 
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-300"
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <Github size={20} />
-                    </a>
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-300"
-                        aria-label={`View ${project.title} demo`}
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="flex items-center gap-3">
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 text-foreground/80 hover:text-primary rounded-full transition-all duration-300"
+          aria-label={`View ${project.title} on GitHub`}
+        >
+          <Github size={20} />
+        </a>
 
-        <div className="flex justify-center pt-8">
+        {project.demoUrl && (
           <a
-            href="https://github.com/harshinisanjana"
+            href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative"
+            className="p-2 text-foreground/80 hover:text-primary rounded-full transition-all duration-300"
+            aria-label={`View ${project.title} demo`}
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-75 group-hover:opacity-100 transition-opacity animate-pulse" />
-            <button className="relative px-8 py-4 bg-black rounded-full text-white font-medium flex items-center gap-3 hover:scale-105 transition-transform">
-              <Github className="w-5 h-5" />
-              Check My Github
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <ExternalLink size={20} />
           </a>
-        </div>
+        )}
       </div>
+    </div>
+  ))}
+</div>
+      </div>  
     </section>
   );
 };
