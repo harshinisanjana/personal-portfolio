@@ -79,7 +79,7 @@ export const AboutSection = () => {
                   <p className="text-foreground/80 leading-relaxed">
                     My skills include Python, Java, C/C++, HTML, CSS, JavaScript, and frameworks 
                     like React, Angular, Node.js, Flask, Django, and Tailwind CSS. I also work with MySQL, 
-                    Oracle, MongoDB and MS SQL, and use tools like VSCode, Power BI, and Excel.
+                    Oracle, MongoDB and MS SQL, and use tools like VSCode.
                   </p>
 
                   <p className="text-foreground/80 leading-relaxed">

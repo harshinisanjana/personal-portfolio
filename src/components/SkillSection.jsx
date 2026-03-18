@@ -1,5 +1,4 @@
-import { FaLinux } from "react-icons/fa";
-import { SiPhp, SiAngular, SiNodedotjs, SiR } from "react-icons/si";
+import { SiPhp, SiAngular, SiNodedotjs } from "react-icons/si";
 import { useState } from "react";
 
 // Technology logo SVG components
@@ -37,7 +36,6 @@ const TechIcons = {
   ),
   Angular: () => <SiAngular className="w-full h-full" color="#DD0031" />,
   NodeJS: () => <SiNodedotjs className="w-full h-full" color="#3C873A" />,
-  R: () => <SiR className="w-full h-full" color="#276DC3" />,
   TypeScript: () => (
     <svg viewBox="0 0 24 24" className="w-full h-full">
       <path fill="#3178C6" d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
@@ -80,7 +78,6 @@ const TechIcons = {
       <path fill="#007ACC" d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
     </svg>
   ),
-  Linux: () => <FaLinux className="w-full h-full" color="#FCC624" />,
   Figma: () => (
     <svg viewBox="0 0 24 24" className="w-full h-full">
       <circle cx="12" cy="5" r="3" fill="#F24E1E" />
@@ -114,9 +111,6 @@ const skills = [
   { name: "JavaScript", icon: "JavaScript", category: "programming", color: "from-yellow-400 to-yellow-600" },
   { name: "HTML", icon: "HTML", category: "programming", color: "from-orange-500 to-red-500" },
   { name: "CSS", icon: "CSS", category: "programming", color: "from-blue-400 to-blue-600" },
-  { name: "PHP", icon: "PHP", category: "programming", color: "from-purple-600 to-indigo-700" },
-  { name: "TypeScript", icon: "TypeScript", category: "programming", color: "from-blue-500 to-blue-700" },
-  { name: "R", icon: "R", category: "programming", color: "from-blue-400 to-blue-700" },
   
   // Frameworks & Libraries
   { name: "React", icon: "React", category: "frameworks", color: "from-cyan-400 to-blue-500" },
@@ -128,10 +122,7 @@ const skills = [
   
   // Tools & Platforms
   { name: "Git/GitHub", icon: "Git", category: "tools", color: "from-gray-800 to-black" },
-  { name: "VS Code", icon: "VSCode", category: "tools", color: "from-blue-500 to-blue-700" },
-  { name: "Power BI", icon: "BarChart", category: "tools", color: "from-yellow-500 to-orange-500" },
-  { name: "MS Excel", icon: "FileSpreadsheet", category: "tools", color: "from-green-600 to-green-800" },
-  { name: "Linux", icon: "Linux", category: "tools", color: "from-yellow-500 to-black" }
+  { name: "VS Code", icon: "VSCode", category: "tools", color: "from-blue-500 to-blue-700" }
     ,
     // Design & Editing
     { name: "Figma", icon: "Figma", category: "tools", color: "from-pink-500 to-purple-500" },
