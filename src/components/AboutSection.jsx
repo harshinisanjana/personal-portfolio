@@ -97,7 +97,7 @@ export const AboutSection = () => {
               </div>
             </div>
             <a 
-              href="/personal-portfolio/project/_HARSHINI_SANJANA_J_RESUME.pdf" 
+              href="/personal-portfolio/project/HARSHINI_SANJANA_J_RESUME.pdf" 
               download 
               className="mt-8 w-full border-1 border-newsprint-bg py-2 newsprint-label hover:bg-newsprint-bg hover:text-ink-black transition-all flex items-center justify-center gap-2"
             >
