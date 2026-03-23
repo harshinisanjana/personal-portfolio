@@ -66,12 +66,8 @@ export const AboutSection = () => {
             </h3>
             <div className="flex flex-col">
               {[
-                { 
-                  role: "Software Development Intern", 
-                  company: "AheadOne Technologies Private Limited", 
-                  period: "2024 — PRESENT", 
-                  desc: "Developed and enhanced a dynamic web application using Angular and Spring Boot, implementing modular and scalable features." 
-                }
+                { role: "Frontend Intern", company: "Z-Square", period: "May 2024 — June 2024", desc: "Crafting editorial web systems with React and Tailwind CSS." },
+                { role: "Software Researcher", company: "PSG Tech", period: "Ongoing", desc: "Exploring the intersections of Data Science and UI design." }
               ].map((item, i) => (
                 <div key={i} className="py-6 border-b-1 border-ink-black last:border-b-0">
                   <span className="newsprint-mono text-[10px] text-neutral-500">{item.period}</span>
