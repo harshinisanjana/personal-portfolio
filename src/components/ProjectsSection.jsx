@@ -1,143 +1,186 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "DevHive - Developer Community Platform",
+    title: "DevHive — Developer Community Platform",
     description:
-      "Developed a full-stack platform for developer collaboration with project discovery and application workflows. Implemented secure JWT-based role access and file uploads for portfolio submissions. Built a dashboard for project owners to track applications, manage decisions, and monitor real-time status.",
+      "Full-stack platform for developer collaboration with project discovery and application workflows. Secure JWT-based role access, file uploads, and a dashboard for project owners.",
     tags: ["Vite+React", "Tailwind CSS", "Node.js", "Express.js", "MySQL"],
     githubUrl: "https://github.com/harshinisanjana/DevHive",
+    accent: "#D02020",
+    shape: "square",
   },
   {
     id: 2,
     title: "Lung Cancer Detection Model",
     description:
-      "Built a deep learning model for early-stage lung cancer detection from medical images with 75% accuracy. Applied transfer learning with pre-trained CNNs to boost accuracy and efficiency.",
-    tags: ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "Scikit-learn", "Matplotlib"],
+      "Deep learning model for early-stage lung cancer detection from medical images with 75% accuracy. Uses transfer learning with pre-trained CNNs.",
+    tags: ["Python", "TensorFlow", "Keras", "NumPy", "Scikit-learn"],
     githubUrl: "https://github.com/harshinisanjana/Lung-Cancer-Detection-Model",
+    accent: "#1040C0",
+    shape: "circle",
   },
   {
     id: 3,
     title: "Hospital Patient Management System",
     description:
-      "Built a hospital system with patient registration and doctor assignment. Added time-slot scheduling, searchable records, and daily admission/discharge reports.",
+      "Hospital system with patient registration, doctor assignment, time-slot scheduling, searchable records, and daily admission/discharge reports.",
     tags: ["Java", "Swing", "MySQL", "JDBC"],
-    githubUrl: "https://github.com/harshinisanjana/Hospital-Patient-Management-System",
+    githubUrl:
+      "https://github.com/harshinisanjana/Hospital-Patient-Management-System",
+    accent: "#F0C020",
+    shape: "triangle",
   },
   {
     id: 4,
-    title: "Menstural Cycle Tracker",
+    title: "Menstrual Cycle Tracker",
     description:
-      "Developed a cycle tracker with user login, period prediction, and hormone insights. Visualized cycle data using Matplotlib charts on a responsive dashboard.",
+      "Cycle tracker with user login, period prediction, and hormone insights. Visualized cycle data using Matplotlib charts on a responsive dashboard.",
     tags: ["Python", "Flask", "MySQL", "HTML", "CSS"],
     githubUrl: "https://github.com/harshinisanjana/menstrual-cycle-tracker",
+    accent: "#D02020",
+    shape: "circle",
   },
   {
     id: 5,
     title: "Vehicle Token Dispensing System",
     description:
-      "Created a web-based parking system with token generation, slot display, and admin controls. Integrated real-time updates, parking verification, and customer data tracking.",
+      "Web-based parking system with token generation, slot display, and admin controls. Integrated real-time updates, verification, and customer data tracking.",
     tags: ["HTML", "CSS", "JavaScript", "PHP"],
-    githubUrl: "https://github.com/harshinisanjana/vehicle_token_dispensing_system",
+    githubUrl:
+      "https://github.com/harshinisanjana/vehicle_token_dispensing_system",
+    accent: "#1040C0",
+    shape: "square",
   },
 ];
 
+const CornerShape = ({ shape, color }) => {
+  if (shape === "circle")
+    return (
+      <div
+        className="w-4 h-4 rounded-full border-2 border-[#121212]"
+        style={{ backgroundColor: color }}
+      />
+    );
+  if (shape === "triangle")
+    return (
+      <div
+        style={{
+          width: 0,
+          height: 0,
+          borderLeft: "8px solid transparent",
+          borderRight: "8px solid transparent",
+          borderBottom: `16px solid ${color}`,
+        }}
+      />
+    );
+  return (
+    <div
+      className="w-4 h-4 border-2 border-[#121212]"
+      style={{ backgroundColor: color }}
+    />
+  );
+};
+
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <h2
-              className="text-4xl md:text-5xl font-extrabold mb-4 text-center cosmic-text"
-              style={{
-                lineHeight: "1.2",
-                paddingBottom: "0.15em",
-                fontFamily: "Segoe UI, sans-serif",
-              }}
-            >
-              Featured{" "}
-              <span className="cosmic-text whitespace-nowrap">Projects</span>
-            </h2>
-          </div>
+    <section
+      id="projects"
+      className="bauhaus-section bg-[#F0F0F0]"
+      aria-labelledby="projects-heading"
+    >
+      {/* Section header */}
+      <div className="border-b-4 border-[#121212] px-6 sm:px-10 lg:px-16 py-10 flex items-end gap-6">
+        <div className="w-2 bg-[#1040C0]" style={{ height: "64px" }} />
+        <div>
+          <p className="bauhaus-label text-[#1040C0] mb-1">04 — Work</p>
+          <h2
+            id="projects-heading"
+            className="bauhaus-display text-4xl sm:text-5xl lg:text-6xl text-[#121212]"
+          >
+            Featured Projects
+          </h2>
         </div>
+      </div>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-20">
+        <p className="font-medium text-[#121212]/60 mb-12 max-w-2xl text-sm leading-relaxed">
+          Each project was carefully crafted with attention to detail,
+          performance, and real-world impact.
         </p>
 
-        {/* 3-column grid, NO images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
           {projects.map((project) => (
             <article
               key={project.id}
-              className="group h-full rounded-xl border border-border/60 bg-background/40 p-6 hover:border-primary/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              className="bauhaus-card p-6 flex flex-col justify-between relative group"
             >
+              {/* Corner geometric decoration */}
+              <div className="absolute top-4 right-4">
+                <CornerShape shape={project.shape} color={project.accent} />
+              </div>
+
               <div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
+                {/* Accent top bar */}
+                <div
+                  className="w-12 h-1 mb-5"
+                  style={{ backgroundColor: project.accent }}
+                />
+
+                <h3 className="bauhaus-heading text-base text-[#121212] mb-3 pr-6 leading-snug">
+                  {project.title}
+                </h3>
+
+                <p className="text-sm font-medium text-[#121212]/65 leading-relaxed mb-5">
+                  {project.description}
+                </p>
+
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag) => (
                     <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
+                      key={tag}
+                      className="bauhaus-label text-[9px] px-2 py-1 bg-[#F0C020] border border-[#121212] text-[#121212]"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
-                  {project.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
               </div>
 
-              <div className="flex items-center gap-3 mt-2">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
-                  aria-label={`View ${project.title} on GitHub`}
-                >
-                  <Github size={18} />
-                  <span>View on GitHub</span>
-                </a>
-
-                {project.demoUrl && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
-                    aria-label={`View ${project.title} demo`}
-                  >
-                    <ExternalLink size={18} />
-                    <span>Live demo</span>
-                  </a>
-                )}
-              </div>
+              {/* GitHub link */}
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bauhaus-btn text-xs py-2 px-4 self-start"
+                style={{
+                  backgroundColor: project.accent,
+                  color: project.accent === "#F0C020" ? "#121212" : "#fff",
+                }}
+                aria-label={`View ${project.title} on GitHub`}
+              >
+                <Github size={14} />
+                GitHub
+                <ArrowRight size={12} />
+              </a>
             </article>
           ))}
         </div>
 
-        <div className="flex justify-center pt-8">
+        {/* View All CTA */}
+        <div className="flex justify-center">
           <a
             href="https://github.com/harshinisanjana"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative"
+            className="bauhaus-btn bauhaus-btn-blue"
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-75 group-hover:opacity-100 transition-opacity animate-pulse" />
-            <button className="relative px-8 py-4 bg-black rounded-full text-white font-medium flex items-center gap-3 hover:scale-105 transition-transform">
-              <Github className="w-5 h-5" />
-              Check My Github
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <Github size={18} />
+            View All on GitHub
+            <ArrowRight size={16} />
           </a>
         </div>
       </div>

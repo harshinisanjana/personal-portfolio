@@ -1,7 +1,6 @@
 import { SiPhp, SiAngular, SiNodedotjs } from "react-icons/si";
-import { useState } from "react";
 
-// Technology logo SVG components
+// ── Tech SVG icons (kept from original) ──────────────────────
 const TechIcons = {
   Python: () => (
     <svg viewBox="0 0 24 24" className="w-full h-full">
@@ -59,8 +58,8 @@ const TechIcons = {
     </svg>
   ),
   Flask: () => (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <path fill="#000000" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.5 3h1v7.5l4.5 9h-10l4.5-9V3z"/>
+    <svg viewBox="0 0 128 128" className="w-full h-full">
+      <path fill="#121212" d="M73.3 41V15h3.4c2.2 0 4-1.8 4-4s-1.8-4-4-4H51.3c-2.2 0-4 1.8-4 4s1.8 4 4 4h3.4v26L19 104.8c-2.2 5.1-.4 11 4.2 14 2.1 1.3 4.4 2 6.7 2h68.2c2.3 0 4.6-.7 6.7-2 4.6-3 6.4-8.9 4.2-14L73.3 41z"/>
     </svg>
   ),
   Django: () => (
@@ -80,77 +79,21 @@ const TechIcons = {
   ),
   Figma: () => (
     <svg viewBox="0 0 24 24" className="w-full h-full">
-      <circle cx="12" cy="5" r="3" fill="#F24E1E" />
-      <circle cx="12" cy="12" r="3" fill="#A259FF" />
-      <circle cx="12" cy="19" r="3" fill="#1ABCFE" />
-      <circle cx="19" cy="12" r="3" fill="#0ACF83" />
-      <circle cx="5" cy="12" r="3" fill="#FF7262" />
+      <rect x="2" y="2" width="10" height="10" rx="5" fill="#F24E1E"/>
+      <rect x="12" y="2" width="10" height="10" rx="5" fill="#FF7262"/>
+      <rect x="2" y="12" width="10" height="10" rx="5" fill="#A259FF"/>
+      <circle cx="17" cy="17" r="5" fill="#1ABCFE"/>
     </svg>
   ),
   CapCut: () => (
     <svg viewBox="0 0 24 24" className="w-full h-full">
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#000" />
-      <path d="M7 7l10 10M17 7l-10 10" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  )
-};
-
-// Updated skills data with proper tech icons
-const skills = [
-  // ...existing code...
-  
-  // Databases
-  { name: "MySQL", icon: "MySQL", category: "databases", color: "from-blue-600 to-blue-800" },
-  { name: "Oracle DB", icon: "Oracle", category: "databases", color: "from-red-600 to-orange-600" },
-  { name: "MS SQL", icon: "Database", category: "databases", color: "from-gray-600 to-gray-800" },
-  
-  // Programming Languages
-  { name: "Python", icon: "Python", category: "programming", color: "from-yellow-500 to-green-600" },
-  { name: "Java", icon: "Java", category: "programming", color: "from-orange-600 to-red-600" },
-  { name: "C/C++", icon: "CPlusPlus", category: "programming", color: "from-blue-600 to-indigo-700" },
-  { name: "JavaScript", icon: "JavaScript", category: "programming", color: "from-yellow-400 to-yellow-600" },
-  { name: "HTML", icon: "HTML", category: "programming", color: "from-orange-500 to-red-500" },
-  { name: "CSS", icon: "CSS", category: "programming", color: "from-blue-400 to-blue-600" },
-  
-  // Frameworks & Libraries
-  { name: "React", icon: "React", category: "frameworks", color: "from-cyan-400 to-blue-500" },
-  { name: "Angular", icon: "Angular", category: "frameworks", color: "from-red-600 to-pink-600" },
-  { name: "Flask", icon: "Flask", category: "frameworks", color: "from-gray-700 to-gray-900" },
-  { name: "Django", icon: "Django", category: "frameworks", color: "from-green-700 to-green-900" },
-  { name: "Tailwind CSS", icon: "TailwindCSS", category: "frameworks", color: "from-teal-400 to-cyan-500" },
-  { name: "Node.js", icon: "NodeJS", category: "frameworks", color: "from-green-500 to-green-700" },
-  
-  // Tools & Platforms
-  { name: "Git/GitHub", icon: "Git", category: "tools", color: "from-gray-800 to-black" },
-  { name: "VS Code", icon: "VSCode", category: "tools", color: "from-blue-500 to-blue-700" }
-    ,
-    // Design & Editing
-    { name: "Figma", icon: "Figma", category: "tools", color: "from-pink-500 to-purple-500" },
-    { name: "CapCut", icon: "CapCut", category: "tools", color: "from-black to-gray-700" }
-];
-
-const categories = ["programming", "frameworks", "databases", "tools"];
-
-// Generic fallback icons for categories and non-tech items
-const GenericIcons = {
-  Code: () => (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <path fill="currentColor" d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-    </svg>
-  ),
-  Stack: () => (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-    </svg>
-  ),
-  Globe: () => (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+      <rect x="2" y="2" width="20" height="20" rx="4" fill="#000"/>
+      <path d="M7 7l10 10M17 7l-10 10" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/>
     </svg>
   ),
   Database: () => (
     <svg viewBox="0 0 24 24" className="w-full h-full">
-      <path fill="currentColor" d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4zM4 17v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z"/>
+      <path fill="#6B7280" d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4zM4 17v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z"/>
     </svg>
   ),
   CPlusPlus: () => (
@@ -158,77 +101,117 @@ const GenericIcons = {
       <path fill="#00599C" d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.339.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.109-7.11a7.133 7.133 0 016.156 3.553l-2.076 1.005a4.567 4.567 0 00-8.08 2.552c0 2.52 2.04 4.561 4.56 4.561a4.564 4.564 0 003.957-2.274l2.077 1.005A7.135 7.135 0 0112 19.11zm8.109-9.11h-.79v-.79h-.79v.79h-.79v.79h.79v.79h.79v-.79h.79v-.79zm-3.955 0h-.79v-.79h-.79v.79h-.79v.79h.79v.79h.79v-.79h.79v-.79z"/>
     </svg>
   ),
-  BarChart: () => (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <path fill="currentColor" d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
-    </svg>
-  ),
-  FileSpreadsheet: () => (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <path fill="currentColor" d="M6 2c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13zM8 11h2v2H8v-2zm0 4h2v2H8v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
-    </svg>
-  )
 };
 
-const categoryIcons = {
-  all: "🎯",
-  core: "💼", 
-  programming: "👨‍💻",
-  frameworks: "🏗️",
-  databases: "🗄️",
-  tools: "🛠️"
-};
-
-const cn = (...classes) => classes.filter(Boolean).join(' ');
+// ── Skills data ──────────────────────────────────────────────
+const skillGroups = [
+  {
+    label: "Programming",
+    accent: "#D02020",
+    skills: [
+      { name: "Python", icon: "Python" },
+      { name: "Java", icon: "Java" },
+      { name: "C / C++", icon: "CPlusPlus" },
+      { name: "JavaScript", icon: "JavaScript" },
+      { name: "HTML", icon: "HTML" },
+      { name: "CSS", icon: "CSS" },
+    ],
+  },
+  {
+    label: "Frameworks & Libraries",
+    accent: "#1040C0",
+    skills: [
+      { name: "React", icon: "React" },
+      { name: "Angular", icon: "Angular" },
+      { name: "Flask", icon: "Flask" },
+      { name: "Django", icon: "Django" },
+      { name: "Tailwind CSS", icon: "TailwindCSS" },
+      { name: "Node.js", icon: "NodeJS" },
+    ],
+  },
+  {
+    label: "Databases",
+    accent: "#F0C020",
+    skills: [
+      { name: "MySQL", icon: "MySQL" },
+      { name: "Oracle DB", icon: "Oracle" },
+      { name: "MS SQL", icon: "Database" },
+    ],
+  },
+  {
+    label: "Tools",
+    accent: "#D02020",
+    skills: [
+      { name: "Git / GitHub", icon: "Git" },
+      { name: "VS Code", icon: "VSCode" },
+      { name: "Figma", icon: "Figma" },
+      { name: "CapCut", icon: "CapCut" },
+    ],
+  },
+];
 
 export const SkillSection = () => {
-  // Group skills by category
-  const groupedSkills = categories.map(cat => ({
-    category: cat,
-    skills: skills.filter(s => s.category === cat)
-  }));
-
-  const renderIcon = (iconName) => {
-    const IconComponent = TechIcons[iconName] || GenericIcons[iconName];
-    return IconComponent ? <IconComponent /> : <div className="w-full h-full bg-gray-300 rounded"></div>;
-  };
-
   return (
-    <section id="skills" className="py-24 px-4 relative bg-gradient-to-b from-secondary/40 to-secondary/10">
-      {/* Space background handled by .dark body in index.css */}
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-14 text-center cosmic-text" style={{lineHeight: '1.2', paddingBottom: '0.50em', fontFamily: 'Segoe UI, sans-serif'}}>
-          My <span className="cosmic-text whitespace-nowrap">Tech Stack</span>
-        </h2>
-        {groupedSkills.map(({ category, skills }) => (
-          <div key={category} className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 cosmic-text">
-              <span className="text-2xl">{categoryIcons[category]}</span>
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-              {skills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="group relative card-hover gradient-border p-3 rounded-xl shadow-md transition-all duration-300"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {/* Cosmic glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-30 rounded-xl transition-opacity duration-300 blur-sm`} />
-                  {/* Icon */}
-                  <div className="w-10 h-10 mx-auto mb-2 text-primary group-hover:text-primary-foreground transition-colors duration-300 animate-float">
-                    {renderIcon(skill.icon)}
+    <section
+      id="skills"
+      className="bg-[#F0C020] bauhaus-section"
+      aria-labelledby="skills-heading"
+    >
+      {/* Section header */}
+      <div className="border-b-4 border-[#121212] px-6 sm:px-10 lg:px-16 py-10 flex items-end gap-6">
+        <div className="w-2 bg-[#121212]" style={{ height: "64px" }} />
+        <div>
+          <p className="bauhaus-label text-[#121212]/60 mb-1">03 — Skills</p>
+          <h2
+            id="skills-heading"
+            className="bauhaus-display text-4xl sm:text-5xl lg:text-6xl text-[#121212]"
+          >
+            My Tech Stack
+          </h2>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-20">
+        {skillGroups.map((group, gi) => (
+          <div key={group.label} className={gi < skillGroups.length - 1 ? "mb-14" : ""}>
+            {/* Category header */}
+            <div className="flex items-center gap-4 mb-6">
+              <div
+                className="w-5 h-5 border-2 border-[#121212]"
+                style={{
+                  backgroundColor: group.accent,
+                  transform: gi % 2 === 1 ? "rotate(45deg)" : "none",
+                  borderRadius: gi === 2 ? "50%" : "0",
+                }}
+              />
+              <h3 className="bauhaus-heading text-lg text-[#121212]">
+                {group.label}
+              </h3>
+              <div className="flex-1 h-[2px] bg-[#121212]/20" />
+            </div>
+
+            {/* Skill chips grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+              {group.skills.map((skill) => {
+                const IconComponent = TechIcons[skill.icon];
+                return (
+                  <div
+                    key={skill.name}
+                    className="group bg-white border-2 border-[#121212] shadow-[4px_4px_0_0_#121212] flex flex-col items-center justify-center gap-2 p-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#121212] cursor-default"
+                  >
+                    <div className="w-9 h-9">
+                      {IconComponent ? <IconComponent /> : (
+                        <div className="w-full h-full bg-[#121212]/20 flex items-center justify-center text-xs font-black text-[#121212]">
+                          {skill.name.slice(0, 2)}
+                        </div>
+                      )}
+                    </div>
+                    <span className="bauhaus-label text-[10px] text-[#121212] text-center leading-tight">
+                      {skill.name}
+                    </span>
                   </div>
-                  {/* Skill Name */}
-                  <h3 className="font-semibold text-center text-xs cosmic-text group-hover:text-primary-foreground transition-colors duration-300 leading-tight tracking-wide">
-                    {skill.name}
-                  </h3>
-                  {/* Hover Effect Indicator */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-xl`} />
-                  {/* Star sparkle on hover */}
-                  <div className="absolute top-2 right-2 w-2 h-2 star twinkle opacity-0 group-hover:opacity-80" />
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
