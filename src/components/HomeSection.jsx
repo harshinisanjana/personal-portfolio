@@ -40,7 +40,7 @@ export const HomeSection = () => {
         <div className="lg:col-span-4 lg:pl-12 flex flex-col gap-10">
           <div className="pb-8 border-b-1 border-ink-black border-dashed">
             <div className="newsprint-label text-neutral-500 mb-2">FIG 1.0 — PROFILE</div>
-            <div className="aspect-[4/5] bg-neutral-200 newsprint-image relative overflow-hidden flex items-center justify-center">
+            <div className="aspect-[4/5] bg-neutral-200 relative overflow-hidden flex items-center justify-center">
                <img src="/personal-portfolio/project/pic.jpeg" alt="Harshini Sanjana" className="w-full h-full object-cover" />
                <div className="absolute inset-0 bg-[radial-gradient(#111_1px,transparent_1px)] opacity-10 [background-size:16px_16px]" />
             </div>
