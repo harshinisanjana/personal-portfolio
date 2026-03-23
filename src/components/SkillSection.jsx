@@ -28,7 +28,7 @@ const skillCategories = [
   {
     title: "TOOLS & ENVIRONMENT",
     icon: <Code2 size={18} />,
-    skills: ["Git/GitHub", "VS Code", "Vite", "ESLint", "Postman", "Linux"],
+    skills: ["Git/GitHub", "VS Code", "Vite", "Postman", "Linux"],
     accent: "bg-ink-black text-white",
   },
   {
