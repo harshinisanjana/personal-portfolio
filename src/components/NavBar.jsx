@@ -1,142 +1,96 @@
-import { cn } from "../lib/util";
-import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
-
-// Geometric logo: three Bauhaus primary shapes
-const GeometricLogo = () => (
-  <div className="flex items-center gap-3">
-    <div className="flex items-center gap-1" aria-hidden="true">
-      {/* Circle — Red */}
-      <div className="w-4 h-4 rounded-full bg-[#D02020] border-2 border-[#121212]" />
-      {/* Square — Blue */}
-      <div className="w-4 h-4 bg-[#1040C0] border-2 border-[#121212]" />
-      {/* Triangle — Yellow */}
-      <div
-        className="w-0 h-0"
-        style={{
-          borderLeft: "8px solid transparent",
-          borderRight: "8px solid transparent",
-          borderBottom: "16px solid #F0C020",
-          filter: "drop-shadow(0 0 0 2px #121212)",
-        }}
-      />
-    </div>
-    <span
-      className="text-[#121212] font-black uppercase tracking-tight leading-none"
-      style={{ fontFamily: "'Outfit', sans-serif", fontSize: "1.1rem" }}
-    >
-      Harshini Sanjana
-    </span>
-  </div>
-);
+import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentDate, setCurrentDate] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const d = new Date();
+    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+    setCurrentDate(d.toLocaleDateString("en-US", options).toUpperCase());
   }, []);
 
+  const navLinks = [
+    { name: "Home", href: "#hero" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <nav
-      className={cn(
-        "fixed w-full z-40 bg-[#F0F0F0] border-b-4 border-[#121212] transition-all duration-200",
-        isScrolled ? "py-2 shadow-[0_4px_0_0_#121212]" : "py-4"
-      )}
-      role="navigation"
-      aria-label="Main navigation"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <a href="#hero" aria-label="Back to top">
-          <GeometricLogo />
+    <header className="sticky top-0 z-50 bg-newsprint-bg border-b-4 border-ink-black h-auto">
+      {/* Newspaper Top Metadata */}
+      <div className="newsprint-section py-2 border-b-1 flex flex-col sm:flex-row justify-between items-center bg-[#F5F5F3]">
+        <div className="edition-label">VOL. 1 — NO. 1</div>
+        <div className="edition-label tracking-[0.3em] font-bold">THE HARSHINI GAZETTE</div>
+        <div className="edition-label">{currentDate}</div>
+      </div>
+
+      <nav className="newsprint-section py-6 flex flex-col items-center">
+        {/* Newspaper Masthead / Logo */}
+        <a 
+          href="#hero" 
+          className="font-serif-display text-4xl md:text-6xl tracking-tighter mb-6 group transition-colors duration-300"
+        >
+          <span className="text-editorial-red">Harshini</span> Sanjana
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center justify-between w-full max-w-2xl border-y py-2 border-ink-black">
+          {navLinks.map((link) => (
             <a
-              key={item.name}
-              href={item.href}
-              className="text-[#121212] font-bold uppercase tracking-widest text-xs hover:text-[#D02020] transition-colors duration-200 relative group"
+              key={link.name}
+              href={link.href}
+              className="newsprint-label text-[10px] hover:text-editorial-red transition-colors relative group"
             >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#D02020] group-hover:w-full transition-all duration-200" />
+              {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-editorial-red transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
           <a
-            href="#contact"
-            className="bauhaus-btn bauhaus-btn-red text-xs py-2 px-4"
+            href="mailto:harshinisanjana.j@gmail.com"
+            className="newsprint-btn px-4 py-1 text-[10px]"
           >
-            Hire Me
+            HIRE ME
           </a>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile Toggle */}
         <button
-          id="mobile-menu-toggle"
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 border-2 border-[#121212] bg-white shadow-[3px_3px_0_0_#121212] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-100"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-          aria-expanded={isMenuOpen}
+          className="md:hidden p-2 text-ink-black"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
-          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
+      </nav>
 
-        {/* Mobile fullscreen overlay */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-[#121212] z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-          aria-hidden={!isMenuOpen}
-        >
-          {/* Decorative shapes */}
-          <div className="absolute top-12 right-12 w-16 h-16 bg-[#D02020] opacity-20" />
-          <div className="absolute bottom-16 left-12 w-12 h-12 rounded-full bg-[#1040C0] opacity-20" />
-          <div className="absolute top-1/3 left-8 w-10 h-10 bg-[#F0C020] opacity-20 rotate-45" />
-
-          <nav className="flex flex-col items-center gap-10">
-            {navItems.map((item) => (
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 top-[180px] bg-newsprint-bg z-40 p-6 md:hidden newsprint-texture">
+          <div className="flex flex-col gap-6">
+            {navLinks.map((link) => (
               <a
-                key={item.name}
-                href={item.href}
-                className="text-white font-black uppercase tracking-widest text-2xl hover:text-[#F0C020] transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
+                key={link.name}
+                href={link.href}
+                className="font-serif-display text-4xl border-b-2 border-ink-black pb-2 hover:text-editorial-red transition-all"
+                onClick={() => setIsOpen(false)}
               >
-                {item.name}
+                {link.name}
               </a>
             ))}
             <a
-              href="#contact"
-              className="bauhaus-btn bauhaus-btn-yellow mt-4"
-              onClick={() => setIsMenuOpen(false)}
+              href="mailto:harshinisanjana.j@gmail.com"
+              className="newsprint-btn w-full justify-center text-lg py-4"
+              onClick={() => setIsOpen(false)}
             >
-              Hire Me
+              HIRE ME
             </a>
-          </nav>
-
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className="absolute top-4 right-4 p-2 text-white border-2 border-white"
-            aria-label="Close menu"
-          >
-            <X size={20} />
-          </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
