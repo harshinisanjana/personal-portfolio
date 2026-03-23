@@ -17,7 +17,7 @@ export const AboutSection = () => {
         <div className="lg:col-span-8 flex flex-col gap-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div className="flex flex-col gap-4">
-                <p className="newsprint-mono uppercase tracking-[0.2em] font-black text-editorial-red text-[10px]">
+              <p className="newsprint-mono uppercase tracking-[0.2em] font-black text-editorial-red text-[10px]">
                 FEATURE / CORE COMPETENCIES
               </p>
               <p className="drop-cap justified leading-relaxed font-serif-body text-neutral-700">
@@ -42,10 +42,10 @@ export const AboutSection = () => {
               <GraduationCap size={16} /> ACADEMIC RECORD
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-l-1 border-t-1 border-ink-black">
-               {[
+              {[
                 { year: "2021 — 26", degree: "M.Sc Software Systems", org: "Coimbatore Institute of Technology", loc: "Coimbatore" },
-                { year: "2019 — 21", degree: "Higher Secondary", org: "AVB Matric Hr Sec School", loc: "Coimbatore" },
-                { year: "2018 — 19", degree: "Secondary Education", org: "AVB Matric Hr Sec School", loc: "Coimbatore" }
+                { year: "2019 — 21", degree: "Higher Secondary", org: "Sri Chaitanya Techno School", loc: "Coimbatore" },
+                { year: "2018 — 19", degree: "Secondary Education", org: "Yuvabharathi Public School", loc: "Coimbatore" }
               ].map((item, i) => (
                 <div key={i} className="p-6 border-r-1 border-b-1 border-ink-black hover:bg-neutral-100 transition-colors">
                   <span className="newsprint-mono text-editorial-red font-bold">{item.year}</span>
@@ -96,9 +96,9 @@ export const AboutSection = () => {
                 <span className="font-serif-display text-2xl">12+</span>
               </div>
             </div>
-            <a 
-              href="/personal-portfolio/project/HARSHINI_SANJANA_J_RESUME.pdf" 
-              download 
+            <a
+              href="/personal-portfolio/project/HARSHINI_SANJANA_J_RESUME.pdf"
+              download
               className="mt-8 w-full border-1 border-newsprint-bg py-2 newsprint-label hover:bg-newsprint-bg hover:text-ink-black transition-all flex items-center justify-center gap-2"
             >
               <FileText size={14} /> DOWNLOAD FULL RECORD

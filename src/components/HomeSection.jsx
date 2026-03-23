@@ -22,7 +22,7 @@ export const HomeSection = () => {
 
           <div className="max-w-xl">
             <p className="drop-cap justified text-lg mb-8 font-serif-body">
-              Harshini Sanjana is an M.Sc Software Systems student at PSG College of Technology, specializing in Full-Stack Development, AI/ML, and Data Analytics. With a deep passion for building scalable solutions, she combines technical precision with artistic editorial design systems to create unique, high-impact web experiences.
+              Harshini Sanjana is an M.Sc Software Systems student at Coimbatore Institute of Technology, specializing in Full-Stack Development, AI/ML, and Data Analytics. With a deep passion for building scalable solutions, she combines technical precision with artistic editorial design systems to create unique, high-impact web experiences.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4 border-t-1 border-ink-black">
