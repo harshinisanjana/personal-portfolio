@@ -4,25 +4,25 @@ const skillCategories = [
   {
     title: "PROGRAMMING LANGUAGES",
     icon: <Terminal size={18} />,
-    skills: ["Python", "Java", "C", "C++", "JavaScript", "HTML5", "CSS3", "PHP"],
+    skills: ["Python", "Java", "C", "C++", "JavaScript", "HTML", "CSS"],
     accent: "bg-editorial-red text-white",
   },
   {
     title: "WEB FRAMEWORKS & LIBS",
     icon: <Layout size={18} />,
-    skills: ["React.js", "Node.js", "Express.js", "Flask", "Django", "Angular", "Tailwind CSS"],
+    skills: ["React.js", "Angular", "Node.js", "Express.js", "Flask", "Django", "Tailwind CSS"],
     accent: "bg-ink-black text-white",
   },
   {
     title: "DATA & DATABASES",
     icon: <Database size={18} />,
-    skills: ["MySQL", "Oracle", "MongoDB", "MS SQL", "JDBC", "Data Analytics"],
+    skills: ["MySQL", "Oracle", "MongoDB", "MS SQL", "JDBC"],
     accent: "bg-neutral-200 text-ink-black",
   },
   {
     title: "AI & MACHINE LEARNING",
     icon: <Cpu size={18} />,
-    skills: ["TensorFlow", "Keras", "Scikit-Learn", "NumPy", "Deep Learning"],
+    skills: ["TensorFlow", "Keras", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib", "Deep Learning"],
     accent: "bg-editorial-red text-white",
   },
   {
@@ -70,10 +70,10 @@ export const SkillSection = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-8 pt-4 border-t-1 border-divider-grey border-dashed flex justify-between items-center opacity-40 group-hover:opacity-100 transition-all">
-               <span className="newsprint-mono text-[9px] uppercase">Documentation Available</span>
-               <div className="w-2 h-2 rounded-full bg-editorial-red animate-pulse" />
+              <span className="newsprint-mono text-[9px] uppercase">Documentation Available</span>
+              <div className="w-2 h-2 rounded-full bg-editorial-red animate-pulse" />
             </div>
           </div>
         ))}
@@ -81,12 +81,12 @@ export const SkillSection = () => {
 
       {/* Editorial Quote Footer */}
       <div className="mt-16 text-center py-8 border-t-1 border-ink-black border-dashed">
-         <p className="font-serif-body italic text-neutral-400">
-           "The speed at which information is processed determines the relevance of the publication."
-         </p>
-         <div className="py-4 text-neutral-300 font-serif text-2xl tracking-[1em]">
-           &#x2727; &#x2727; &#x2727;
-         </div>
+        <p className="font-serif-body italic text-neutral-400">
+          "The speed at which information is processed determines the relevance of the publication."
+        </p>
+        <div className="py-4 text-neutral-300 font-serif text-2xl tracking-[1em]">
+          &#x2727; &#x2727; &#x2727;
+        </div>
       </div>
     </section>
   );

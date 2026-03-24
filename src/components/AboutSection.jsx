@@ -43,9 +43,9 @@ export const AboutSection = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-l-1 border-t-1 border-ink-black">
               {[
-                { year: "2021 — 26", degree: "M.Sc Software Systems", org: "Coimbatore Institute of Technology", loc: "Coimbatore" },
-                { year: "2019 — 21", degree: "Higher Secondary", org: "Sri Chaitanya Techno School", loc: "Coimbatore" },
-                { year: "2018 — 19", degree: "Secondary Education", org: "Yuvabharathi Public School", loc: "Coimbatore" }
+                { year: "2023 — 28", degree: "M.Sc Software Systems(5 Years Integrated)", org: "Coimbatore Institute of Technology", loc: "Coimbatore" },
+                { year: "2021— 23", degree: "Higher Secondary", org: "Sri Chaitanya Techno School", loc: "Coimbatore" },
+                { year: "2011 — 21", degree: "Secondary Education", org: "Yuvabharathi Public School", loc: "Coimbatore" }
               ].map((item, i) => (
                 <div key={i} className="p-6 border-r-1 border-b-1 border-ink-black hover:bg-neutral-100 transition-colors">
                   <span className="newsprint-mono text-editorial-red font-bold">{item.year}</span>
