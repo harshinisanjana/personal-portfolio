@@ -3,21 +3,21 @@ import { Github, Linkedin, Mail, MapPin, Send, Smartphone } from "lucide-react";
 const contactMethods = [
   {
     id: "linkedin",
-    label: "LINKEDIN / PROFESSIONAL",
+    label: "LINKEDIN",
     icon: Linkedin,
     href: "https://www.linkedin.com/in/harshini-sanjana-j/",
     detail: "@harshini-sanjana-j",
   },
   {
     id: "email",
-    label: "CORRESPONDENCE / EMAIL",
+    label: "EMAIL",
     icon: Mail,
     href: "mailto:j.harshinisanjana@gmail.com",
     detail: "j.harshinisanjana@gmail.com",
   },
   {
     id: "github",
-    label: "ARCHIVE / GITHUB",
+    label: "GITHUB",
     icon: Github,
     href: "https://github.com/harshinisanjana",
     detail: "@harshinisanjana",
