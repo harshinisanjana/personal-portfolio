@@ -1,4 +1,4 @@
-# Harshini Sanjana — Personal Portfolio
+# Personal Portfolio
 
 A personal portfolio built with React, Vite, and Tailwind CSS.
 
@@ -13,3 +13,4 @@ A personal portfolio built with React, Vite, and Tailwind CSS.
 
 ---
 *Maintained by Harshini Sanjana.*
+

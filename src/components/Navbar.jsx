@@ -23,11 +23,13 @@ export const Navbar = ({ activeView, setActiveView }) => {
         {/* Brand Mark */}
         <button
           onClick={() => handleNavClick("home")}
-          className="flex items-center gap-2 cursor-pointer group text-left focus:outline-none"
+          className="flex items-center gap-2.5 cursor-pointer group text-left focus:outline-none"
         >
-          <div className="w-7 h-7 rounded-lg bg-[#18181b] border border-white/[0.1] flex items-center justify-center font-mono font-bold text-xs text-white group-hover:border-white/30 transition-colors">
-            HS
-          </div>
+          <img
+            src="/personal-portfolio/favicon.png"
+            alt="HS"
+            className="w-7 h-7 rounded-lg object-cover border border-white/[0.1] group-hover:border-white/30 transition-colors"
+          />
           <span className="font-semibold text-sm tracking-tight text-[#ededed] group-hover:text-white transition-colors">
             {PERSONAL_INFO.name}
           </span>
