@@ -28,7 +28,7 @@ export const Navbar = ({ activeView, setActiveView }) => {
           <img
             src={`${import.meta.env.BASE_URL}favicon.png`}
             alt="HS"
-            className="h-8 w-auto rounded-md object-contain border border-white/[0.1] group-hover:border-white/30 transition-colors"
+            className="h-7 w-auto rounded-md object-contain border border-white/[0.1] group-hover:border-white/30 transition-colors"
           />
           <span className="font-semibold text-sm tracking-tight text-[#ededed] group-hover:text-white transition-colors">
             {PERSONAL_INFO.name}
