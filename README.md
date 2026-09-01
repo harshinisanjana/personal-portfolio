@@ -1,7 +1,5 @@
 # Personal Portfolio
 
-A personal portfolio built with React, Vite, and Tailwind CSS.
-
 ## 🚀 Live Site
 [https://harshinisanjana.github.io/personal-portfolio/](https://harshinisanjana.github.io/personal-portfolio/)
 
