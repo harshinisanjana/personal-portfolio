@@ -45,7 +45,7 @@ export const HomeView = ({ onNavigate, onInspectProject }) => {
           <div className="group relative shrink-0 overflow-hidden rounded-2xl border border-white/[0.1] shadow-lg bg-[#141417]">
             <div className="h-16 w-16 overflow-hidden rounded-2xl">
               <img
-                src="/personal-portfolio/image.jpg"
+                src={`${import.meta.env.BASE_URL}image.jpg`}
                 alt={PERSONAL_INFO.name}
                 className="h-full w-full object-cover"
               />
