@@ -1,142 +1,84 @@
 @import "tailwindcss";
 
 @theme {
-  /* Newsprint Palette */
-  --color-newsprint-bg: #f9f9f7;
-  --color-ink-black: #111111;
-  --color-editorial-red: #cc0000;
-  --color-divider-grey: #e5e5e0;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Neutrals for hierarchy */
-  --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
-  --color-neutral-400: #a3a3a3;
-  --color-neutral-500: #737373;
-  --color-neutral-600: #525252;
-  --color-neutral-700: #404040;
+  --color-background: #09090b;
+  --color-card: #121215;
+  --color-elevated: #18181b;
+  
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+  
+  --color-foreground: #ededed;
+  --color-muted: #a1a1aa;
+  --color-subtle: #71717a;
 
-  /* Typography */
-  --font-serif-display: "Playfair Display", "Times New Roman", serif;
-  --font-serif-body: "Lora", Georgia, serif;
-  --font-sans-ui: "Inter", "Helvetica Neue", sans-serif;
-  --font-mono-data: "JetBrains Mono", "Courier New", monospace;
+  --color-accent: #ffffff;
+  --color-accent-hover: #e4e4e7;
 }
 
 @layer base {
-  * {
-    /* Absolute zero radius for all Newsprint elements */
-    border-radius: 0 !important;
-    @apply border-ink-black;
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border-color: var(--color-border);
   }
 
   html {
     scroll-behavior: smooth;
-    @apply bg-newsprint-bg text-ink-black selection:bg-editorial-red selection:text-white;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    color-scheme: dark;
   }
 
   body {
-    @apply font-serif-body leading-relaxed min-h-screen relative;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23111111' fill-opacity='0.03' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--color-background);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-serif-display font-black tracking-tight leading-[0.95];
+  /* Refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
   }
-
-  p {
-    @apply text-neutral-700;
+  ::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
   }
 }
 
-@layer components {
-  /* Editorial Structures */
-  .newsprint-section {
-    @apply py-16 px-4 md:px-8 max-w-screen-xl mx-auto border-ink-black;
-  }
+/* Subtle view transition */
+.view-enter {
+  animation: fadeIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-  .newsprint-column {
-    @apply border-ink-black border-r-1 last:border-r-0 h-full;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  /* Textures */
-  .newsprint-texture {
-    position: relative;
+/* Shimmer animation on hover */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
-  .newsprint-texture::before {
-    content: "";
-    @apply absolute inset-0 pointer-events-none opacity-40;
-    background-image: linear-gradient(
-        0deg,
-        transparent 98%,
-        rgba(17, 17, 17, 0.02) 100%
-      ),
-      linear-gradient(90deg, transparent 98%, rgba(17, 17, 17, 0.02) 100%);
-    background-size: 4px 4px;
-    z-index: 10;
-  }
-
-  /* Utility Styles */
-  .newsprint-card {
-    @apply bg-newsprint-bg border-1 border-ink-black transition-all duration-200 transform;
-  }
-
-  .hard-shadow-hover:hover {
-    box-shadow: 4px 4px 0px 0px #111111;
-    transform: translate(-3px, -3px);
-  }
-
-  .newsprint-btn {
-    @apply px-6 py-2 border-1 border-ink-black bg-ink-black text-newsprint-bg font-sans-ui text-xs uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-2;
-  }
-
-  .newsprint-btn:hover {
-    @apply bg-newsprint-bg text-ink-black transform -translate-x-1 -translate-y-1;
-    box-shadow: 4px 4px 0px 0px #111111;
-  }
-
-  .newsprint-btn-outline {
-    @apply bg-transparent text-ink-black;
-  }
-
-  .newsprint-btn-outline:hover {
-    @apply bg-ink-black text-newsprint-bg;
-    box-shadow: 0 0 0 transparent;
-    transform: none;
-  }
-
-  /* Typography Utilities */
-  .newsprint-display {
-    @apply font-serif-display text-5xl md:text-7xl lg:text-9xl tracking-tighter;
-  }
-
-  .newsprint-label {
-    @apply font-sans-ui text-xs uppercase tracking-[0.2em] font-bold;
-  }
-
-  .newsprint-mono {
-    @apply font-mono-data text-xs;
-  }
-
-  .drop-cap::first-letter {
-    @apply float-left text-7xl font-serif-display font-black leading-[0.8] mr-3 mt-1 text-editorial-red;
-  }
-
-  .justified {
-    @apply text-justify hyphens-auto;
-  }
-
-  /* Newspaper Metadata */
-  .edition-label {
-    @apply font-mono-data text-[10px] uppercase tracking-wider text-neutral-500 border-y py-1 border-divider-grey;
-  }
-
-  /* Grayscale Image Handling */
-  .newsprint-image {
-    @apply grayscale transition-all duration-500 hover:grayscale-0 hover:sepia-[30%];
-  }
+}
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
 }
