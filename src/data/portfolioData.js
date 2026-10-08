@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   email: "j.harshinisanjana@gmail.com",
   github: "https://github.com/harshinisanjana",
   linkedin: "https://www.linkedin.com/in/harshini-sanjana-j/",
-  resumeUrl: "/personal-portfolio/HARSHINI_SANJANA_J_RESUME.pdf",
+  resumeUrl: "/personal-portfolio/project/Harshini_Sanjana_J_Resume%20.pdf",
   educationStatus: "M.Sc Software Systems @ CIT",
   availability: "Open to software engineering roles & internships",
   metrics: [
